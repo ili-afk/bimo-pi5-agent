@@ -1,0 +1,8 @@
+# Пример локальных переменных для `wrangler dev`.
+# Скопируйте в .dev.vars (он в .gitignore) и подставьте свои значения.
+PROXY_TOKEN=dev-token-change-me
+ALLOWED_HOSTS=api.openai.com,www.workbuddy.ai
+TARGET_ORIGIN=
+IP_WHITELIST=
+HEADER_MODE=clean
+CORS_ALLOW_ORIGIN=*

@@ -1,0 +1,26 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+
+# Secrets — never commit
+.env
+.env.*
+*.key
+*.pem
+secrets/
+*.tmp
+
+# Build / deps
+node_modules/
+__pycache__/
+*.pyc
+build/
+dist/
+.venv/
+venv/
+
+# ESP-IDF / firmware build
+sdkconfig.old
+managed_components/
+dependencies.lock

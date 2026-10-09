@@ -1,0 +1,32 @@
+name = "cf-proxy"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# Точка входа для бесплатного поддомена: https://cf-proxy.<твой-логин>.workers.dev
+# Никакой собственный домен для работы НЕ нужен.
+
+[vars]
+# Режим «чистого шлюза»: если заполнить, любой путь проксируется на этот origin.
+# Пусто -> работает режим /proxy/<полный-url>.
+TARGET_ORIGIN = ""
+
+# Кому разрешено быть целью. "*" — любой (небезопасно, только для отладки).
+# Сужено под задачу BIMO: доступ к WorkBuddy без VPN (+ OpenAI при необходимости).
+ALLOWED_HOSTS = "www.workbuddy.ai,www.codebuddy.ai,api.openai.com"
+
+# CORS.
+CORS_ALLOW_ORIGIN = "*"
+
+# "clean" — подменяем UA и вычищаем CF/браузерные заголовки; "passthrough" — как есть.
+HEADER_MODE = "clean"
+
+# Белый список клиентских IP (точные + IPv4 CIDR). Пусто -> все.
+IP_WHITELIST = ""
+
+# PROXY_TOKEN НЕ храните здесь открытым текстом. Задайте секретом:
+#   npx wrangler secret put PROXY_TOKEN
+# (для локальной отладки можно временно раскомментировать строку ниже)
+# PROXY_TOKEN = "dev-token"
+
+[observability]
+enabled = true
